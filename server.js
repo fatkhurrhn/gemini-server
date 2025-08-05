@@ -2,11 +2,20 @@
 import express from 'express';
 import cors from 'cors';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import dotenv from 'dotenv'; // 🔴 Tambahkan ini
+
+dotenv.config(); // 🔴 Load environment variables dari .env
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Railway atur PORT via environment
+const PORT = process.env.PORT || 3000;
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Ambil dari environment
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+// 🔴 Tambahkan pengecekan API key
+if (!GEMINI_API_KEY) {
+  console.error('❌ GEMINI_API_KEY tidak ditemukan di .env!');
+  process.exit(1); // Hentikan server jika key tidak ada
+}
 
 // Middleware
 app.use(cors());
