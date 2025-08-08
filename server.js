@@ -7,7 +7,7 @@ import dotenv from 'dotenv'; // 🔴 Tambahkan ini
 dotenv.config(); // 🔴 Load environment variables dari .env
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9999;
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   res.send(`
     <h1>🚀 Gemini Proxy Server</h1>
     <p>Sip! API kamu berhasil 🎉</p>
-    <p>Gunakan <code>POST /chat</code> untuk kirim pesan ke Gemini.</p>
+    <p>Gunakan <code>POST /chat </code> untuk kirim pesan ke Gemini.</p>
   `);
 });
 
